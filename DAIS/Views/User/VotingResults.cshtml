@@ -1,0 +1,59 @@
+﻿@{
+    Layout = null;
+}
+@using DAIS.ViewModels;
+@model VoteListViewModel
+<!DOCTYPE html>
+
+<html>
+<head>
+    <style>
+        div {
+            margin-left:44%;
+            margin-top:15%;
+        }
+        table {
+            border-radius:15px;
+            
+        }
+
+        td {
+            text-align:center;
+            padding:10px 20px 7px 2px;
+
+        }
+        th {
+            font-size:20px;
+        }
+        #td1 {
+            border:1px solid black;
+            border-radius: 10px;
+           
+        }
+    </style>
+    <meta name="viewport" content="width=device-width" />
+    <title>VotingResults</title>
+</head>
+<body>
+    <div>
+        <table>
+            <tr>
+        <td colspan="2">Votes so far!<br /></td>
+        </tr>
+        <tr>
+        <td colspan="2">
+        <a href="/Authentication/Logout">Logout</a>
+        </td>
+       </tr>
+        
+            <tr><td><b>User</b></td><td><b>Present</b></td></tr>
+        @{
+            foreach(VoteViewModel vvm in Model.VoteViewModels)
+            {
+                <tr><td id="td1">@vvm.Username</td><td id="td1">@vvm.PresentName</td></tr>
+            }
+        }
+            </table>
+    </div>
+</body>
+</html>

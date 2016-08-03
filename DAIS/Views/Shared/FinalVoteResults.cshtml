@@ -1,0 +1,50 @@
+﻿@{
+    Layout = null;
+}
+@using System.Data;
+@model DataTable
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <style>
+        div {
+            margin-left:40%;
+            margin-top:15%;
+        }
+        table {
+            border-radius:15px;
+            border:1px solid black;
+        }
+        td {
+            text-align:center;
+            padding:10px 10px 7px 2px;
+        }
+        th {
+            font-size:20px;
+        }
+    </style>
+    <meta name="viewport" content="width=device-width" />
+    <title>FinalVoteResults</title>
+</head>
+<body>
+    <div>
+        <table>
+        <tr><td colspan="2"><h1>Voting Results</h1></td></tr>
+        @{
+            foreach(DataRow row in Model.Rows)
+            {   <tr>
+                @foreach(var cell in row.ItemArray)
+                {
+                    <td>@cell.ToString()</td>   
+                }
+                </tr>
+            }
+        }
+        
+        <tr><td colspan="2"><a href="/Authentication/Logout">Logout</a></td></tr>
+            </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<style>
+        div {
+            margin-left:40%;
+            margin-top:15%;
+        }
+        table {
+            border-radius:15px;
+            border:1px solid black;
+        }
+        td {
+            text-align:center;
+            padding:10px 10px 7px 2px;
+        }
+        th {
+            font-size:20px;
+        }
+    </style>

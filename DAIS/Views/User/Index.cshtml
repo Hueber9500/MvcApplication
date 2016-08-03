@@ -1,0 +1,57 @@
+﻿@{
+    Layout = null;
+}
+@using DAIS.ViewModels;
+@model DAIS.ViewModels.VotingUserViewModel
+<!DOCTYPE html>
+
+<html>
+<head>
+    <style>
+        div {
+            margin-left:30%;
+            margin-top:15%;
+        }
+        table {
+            border-radius:15px;
+            border:1px solid black;
+        }
+        td {
+            text-align:center;
+            padding:10px 10px 7px 2px;
+        }
+        th {
+            font-size:20px;
+        }
+    </style>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        <table>
+        <form action="/User/VotingResults" method="post">
+
+            <tr>
+                <td>
+                    What is your proposal @User.Identity.Name about <b>@Model.User.Username</b> birthday present?:
+                </td>
+                <td>
+                <select id="ddlPresents" name="Present">
+                <option value=""></option>
+                @foreach (PresentViewModel pvm in Model.Presents.Presents)
+                {
+                    <option value="@pvm.PresentID">@pvm.PresentName</option>
+                }
+            </select>
+                    </td>
+            <td><input type="submit" value="Vote" /></td>
+                </tr>
+        </form>
+            <tr>
+             <td colspan="3"><a href="/Authentication/Logout">Logout</a></td>
+            </tr>    
+        </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,59 @@
+﻿@model DAIS.Models.UserDetails
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <style>
+        div {
+            margin-left:40%;
+            margin-top:15%;
+        }
+        table {
+            border-radius:15px;
+            border:1px solid black;
+        }
+        td {
+            text-align:center;
+            padding:10px 10px 7px 2px;
+        }
+        th {
+            font-size:20px;
+        }
+    </style>
+    <script src="~/Scripts/jquery-1.8.3.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+</head>
+<body>
+
+    <div>
+        <br />
+        <table>
+            <tr><th colspan="2">Login:</th></tr>
+        @Html.ValidationMessage("CredentialError", new {style="color:red;" })
+        @using (Html.BeginForm("DoLogin", "Authentication", FormMethod.Post))
+        {
+            <tr>
+            <td>@Html.LabelFor(c=>c.Username)</td>
+            <td>@Html.TextBoxFor(x=>x.Username)</td>
+            </tr>
+            <tr>           
+            <td>@Html.LabelFor(c=>c.Password)</td> 
+            <td>@Html.PasswordFor(x=>x.Password)</td>
+            </tr>
+            <tr>
+            <td colspan="2"><input type="submit" name="BtnSubmit" value="Login" /></td>
+            </tr>
+        }
+            </table>
+    </div>
+</body>
+</html>
+

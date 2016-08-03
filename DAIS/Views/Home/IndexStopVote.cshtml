@@ -1,0 +1,61 @@
+﻿@{
+    Layout = null;
+}
+@using DAIS.ViewModels
+@model UserViewModelsAndDataTable
+<!DOCTYPE html>
+
+<html>
+<head>
+    <style>
+        #div1 {
+            margin-left:40%;
+            margin-top:4%;
+        }
+        table {
+            border-radius:15px;
+            border:1px solid black;
+        }
+        td {
+            text-align:center;
+            padding:10px 10px 7px 2px;
+        }
+        th {
+            font-size:20px;
+        }
+        #td1 {
+            margin-left:22%;
+        }
+    </style>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div id="div1">
+        <table>
+            <tr>
+        <td>
+            Hello @ViewData["username"]
+        </td>
+        <td><a href="/Authentication/Logout">Logout</a></td>
+            </tr>
+            <form id="userForm" action="/User/Index" method="post">          
+        @{foreach (UserViewModel user in Model.Users.Users)
+        {
+             <tr>                 
+                <td>@user.Username</td>
+                <td>@user.Birthdate</td>
+                 
+                 <td><input type="submit" name="submit" value="@user.UserID"  /></td>
+            </tr>   
+        }
+        }
+            </form>
+            <tr><td colspan="3"><div id="td1"> @Html.Partial("~/Views/Shared/VoteResults.cshtml", Model.Datatable);
+
+                                </div></td></tr>
+        </table>
+       
+    </div>
+</body>
+</html>

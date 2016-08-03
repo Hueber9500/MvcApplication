@@ -1,0 +1,33 @@
+﻿@{
+    Layout = null;
+}
+
+@using System.Data;
+@model DataTable
+
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta name="viewport" content="width=device-width" />
+    <title>AddProduct</title>    
+</head>
+<body>
+    <div>
+        <table>      
+           <tr><td colspan="2">Voting Results</td></tr>
+      
+        @{
+            foreach(DataRow row in Model.Rows)
+            {   <tr>
+                @foreach(var cell in row.ItemArray)
+                {
+                    <td>@cell.ToString()</td>   
+                }
+                </tr>
+            }
+        }
+        </table>
+    </div>
+</body>
+</html>
